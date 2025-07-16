@@ -1,0 +1,23 @@
+[versions]
+lombok = '{{cookiecutter.lombok_version}}'
+jib = '3.4.4'
+spring-boot = '{{cookiecutter.spring_boot_version}}'
+springdoc-openapi-starter-webmvc-ui = '2.6.0'
+spock = '{{cookiecutter.spock_version}}'
+
+[libraries]
+lombok = { group = 'org.projectlombok', name = 'lombok', version.ref = 'lombok' }
+spring-boot-starter = { group = 'org.springframework.boot', name = 'spring-boot-starter', version.ref = 'spring-boot' }
+spring-boot-starter-actuator = { group = 'org.springframework.boot', name = 'spring-boot-starter-actuator', version.ref = 'spring-boot' }
+spring-boot-starter-web = { group = 'org.springframework.boot', name = 'spring-boot-starter-web', version.ref = 'spring-boot' }
+spring-boot-starter-test = { group = 'org.springframework.boot', name = 'spring-boot-starter-test', version.ref = 'spring-boot' }
+spring-boot-starter-validation = { group = 'org.springframework.boot', name = 'spring-boot-starter-validation', version.ref = 'spring-boot' }
+springdoc-openapi-starter-webmvc-ui = { group = 'org.springdoc', name = 'springdoc-openapi-starter-webmvc-ui', version.ref = 'springdoc-openapi-starter-webmvc-ui' }
+spock-core = { group = 'org.spockframework', name = 'spock-core', version.ref = 'spock' }
+spock-spring = { group = 'org.spockframework', name = 'spock-spring', version.ref = 'spock' }
+
+[plugins]
+application = { id = 'buildlogic.java-application' }
+jib = { id = 'com.google.cloud.tools.jib', version.ref = 'jib' }
+library = { id = 'buildlogic.java-library' }
+spring-boot = { id = 'org.springframework.boot', version.ref = 'spring-boot' }

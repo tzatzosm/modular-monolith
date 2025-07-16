@@ -1,0 +1,19 @@
+{
+    "project_name": "ModularMonolith",
+    "project_name_slug": "{{cookiecutter.project_name|slugify}}",
+    "package": "com.example.modularmonolith",
+    "package_dir": "{{cookiecutter.package|replace('.', '/')}}",
+    "description": "A modular monolith application built with Spring Boot and Gradle",
+    "author": "Your Name",
+    "email": "your.email@example.com",
+    "version": "0.1.0",
+    "version_control": ["git", "none"],
+    "spring_boot_version": "3.5.3",
+    "lombok_version": "1.18.38",
+    "spock_version": "2.4-M4-groovy-4.0",
+    "_copy_without_render": [
+        "*.jar",
+        "gradlew",
+        "gradlew.bat"
+    ]
+}

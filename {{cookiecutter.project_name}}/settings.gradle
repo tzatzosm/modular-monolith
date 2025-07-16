@@ -1,0 +1,4 @@
+rootProject.name = '{{cookiecutter.project_name}}'
+
+include 'bootstrap:app'
+include 'features:hello'
