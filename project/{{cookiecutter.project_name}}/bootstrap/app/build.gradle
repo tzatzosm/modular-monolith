@@ -8,12 +8,12 @@ dependencies {
     implementation project(':features:hello')
 
     implementation(platform(libs.spring.boot.bom))
-    
     implementation libs.spring.boot.starter
     implementation libs.spring.boot.starter.actuator
     implementation libs.spring.boot.starter.web
 
     testImplementation libs.spring.boot.starter.test
+    implementation(platform(libs.spock.bom))
     testImplementation libs.spock.core
     testImplementation libs.spock.spring
 }

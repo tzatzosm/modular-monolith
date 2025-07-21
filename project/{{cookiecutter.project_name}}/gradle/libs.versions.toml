@@ -7,15 +7,16 @@ spock = '{{cookiecutter.spock_version}}'
 
 [libraries]
 lombok = { group = 'org.projectlombok', name = 'lombok', version.ref = 'lombok' }
-spring-boot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-boot-bom = { group = "org.springframework.boot", name = 'spring-boot-dependencies', version.ref = "spring-boot" }
 spring-boot-starter = { group = 'org.springframework.boot', name = 'spring-boot-starter'}
 spring-boot-starter-actuator = { group = 'org.springframework.boot', name = 'spring-boot-starter-actuator'}
 spring-boot-starter-web = { group = 'org.springframework.boot', name = 'spring-boot-starter-web'}
 spring-boot-starter-test = { group = 'org.springframework.boot', name = 'spring-boot-starter-test'}
 spring-boot-starter-validation = { group = 'org.springframework.boot', name = 'spring-boot-starter-validation'}
 springdoc-openapi-starter-webmvc-ui = { group = 'org.springdoc', name = 'springdoc-openapi-starter-webmvc-ui', version.ref = 'springdoc-openapi-starter-webmvc-ui' }
-spock-core = { group = 'org.spockframework', name = 'spock-core', version.ref = 'spock' }
-spock-spring = { group = 'org.spockframework', name = 'spock-spring', version.ref = 'spock' }
+spock-bom = { group = 'org.spockframework', name = 'spock-bom', version.ref = 'spock' }
+spock-core = { group = 'org.spockframework', name = 'spock-core' }
+spock-spring = { group = 'org.spockframework', name = 'spock-spring' }
 
 [plugins]
 application = { id = 'buildlogic.java-application' }
