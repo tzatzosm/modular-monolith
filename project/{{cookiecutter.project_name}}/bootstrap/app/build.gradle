@@ -7,6 +7,8 @@ plugins {
 dependencies {
     implementation project(':features:hello')
 
+    implementation(platform(libs.spring.boot.bom))
+    
     implementation libs.spring.boot.starter
     implementation libs.spring.boot.starter.actuator
     implementation libs.spring.boot.starter.web
