@@ -31,13 +31,13 @@ pip install cookiecutter
 ### 2. Generate Project
 
 ```bash
-cookiecutter https://github.com/your-username/modular-monolith-template
+cookiecutter https://github.com/tzatzosm/modular-monolith --directory=project
 ```
 
 Or if you have the template locally:
 
 ```bash
-cookiecutter path/to/modular-monolith-template
+cookiecutter path/to/modular-monolith --directory=project
 ```
 
 ### 3. Configuration Options
@@ -362,7 +362,7 @@ java -version
 
 ### Getting Help
 
-- **GitHub Issues**: Report bugs and request features
+- **GitHub Issues**: Report bugs and request features at https://github.com/tzatzosm/modular-monolith/issues
 - **Discussions**: Ask questions and share ideas
 - **Documentation**: Check the wiki for detailed guides
 
@@ -378,4 +378,4 @@ java -version
 
 **Happy coding! 🎉**
 
-For more information, visit the [project documentation](https://github.com/your-username/modular-monolith-template/wiki).
+For more information, visit the [project documentation](https://github.com/tzatzosm/modular-monolith/wiki).
