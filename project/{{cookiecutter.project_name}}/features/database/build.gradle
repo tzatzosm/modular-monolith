@@ -1,0 +1,31 @@
+buildscript {
+    dependencies {
+        classpath(platform(libs.spring.boot.bom))
+        classpath libs.liquibase.core
+    }
+}
+
+plugins {
+    alias(libs.plugins.library)
+    alias(libs.plugins.liquibase)
+}
+
+dependencies {
+    liquibaseRuntime(platform(libs.spring.boot.bom))
+    liquibaseRuntime libs.liquibase.core
+    liquibaseRuntime libs.postgresql
+    liquibaseRuntime libs.picoli
+}
+
+liquibase {
+    jvmArgs "-Duser.dir=$project.projectDir"
+
+    activities {
+        main {
+            changelogFile 'src/main/resources/changelog.xml'
+            url System.getenv('DB_URL') ?: 'jdbc:postgresql://localhost:5432/{{cookiecutter.project_name_slug}}'
+            username System.getenv('MIGRATIONS_DB_USER') ?: '{{cookiecutter.project_name_slug}}'
+            password System.getenv('MIGRATIONS_DB_PASS') ?: '{{cookiecutter.project_name_slug}}'
+        }
+    }
+}

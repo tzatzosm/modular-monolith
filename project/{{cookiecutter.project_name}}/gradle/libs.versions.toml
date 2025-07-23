@@ -1,12 +1,17 @@
 [versions]
-lombok = '{{cookiecutter.lombok_version}}'
+liquibase-plugin = '3.0.2'
+lombok = '1.18.38'
 jib = '3.4.4'
-spring-boot = '{{cookiecutter.spring_boot_version}}'
+picoli = '4.6.1'
+spring-boot = '3.5.3'
 springdoc-openapi-starter-webmvc-ui = '2.6.0'
-spock = '{{cookiecutter.spock_version}}'
+spock = '2.4-M4-groovy-4.0'
 
 [libraries]
+liquibase-core = { group = 'org.liquibase', name = 'liquibase-core' }
 lombok = { group = 'org.projectlombok', name = 'lombok', version.ref = 'lombok' }
+picoli = { group = 'info.picocli', name = 'picocli', version.ref = 'picoli' }
+postgresql = { group = 'org.postgresql', name = 'postgresql' }
 spring-boot-bom = { group = "org.springframework.boot", name = 'spring-boot-dependencies', version.ref = "spring-boot" }
 spring-boot-starter = { group = 'org.springframework.boot', name = 'spring-boot-starter'}
 spring-boot-starter-actuator = { group = 'org.springframework.boot', name = 'spring-boot-starter-actuator'}
@@ -21,5 +26,6 @@ spock-spring = { group = 'org.spockframework', name = 'spock-spring' }
 [plugins]
 application = { id = 'buildlogic.java-application' }
 jib = { id = 'com.google.cloud.tools.jib', version.ref = 'jib' }
+liquibase = { id = 'org.liquibase.gradle', version.ref = 'liquibase-plugin' }
 library = { id = 'buildlogic.java-library' }
 spring-boot = { id = 'org.springframework.boot', version.ref = 'spring-boot' }

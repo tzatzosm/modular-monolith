@@ -151,6 +151,26 @@ cd my-project
 - **Hello Endpoint**: `http://localhost:8080/hello`
 - **Actuator**: `http://localhost:8080/actuator`
 
+### 5. Run Database Migrations
+
+Database migrations are managed using the [Liquibase Gradle Plugin](https://github.com/liquibase/liquibase-gradle-plugin).
+
+To apply migrations, you have two options:
+
+- **From the project root:**
+  ```bash
+  ./gradlew :features:database:update
+  ```
+- **From the `features/database` module directory:**
+  ```bash
+  ./gradlew update
+  ```
+
+You can customize the database connection by setting the following environment variables:
+- `DB_URL` – JDBC URL for the database
+- `MIGRATIONS_DB_USER` – database username
+- `MIGRATIONS_DB_PASS` – database password
+
 ## 📊 Available Gradle Tasks
 
 | Task | Description |
