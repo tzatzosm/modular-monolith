@@ -1,0 +1,7 @@
+{
+    "feature_name": "feature",
+    "base_package": "com.example.modularmonolith",
+    "base_package_dir": "{{cookiecutter.package|replace('.', '/')}}",
+    "feature_package": "{{ cookiecutter.feature_name|lower|regex_replace('[^a-z0-9]', '')}}",
+    "package": "{{cookiecutter.package}}.{{cookiecutter.feature_package}}"
+}
