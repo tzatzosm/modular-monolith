@@ -18,10 +18,12 @@ spring-boot-starter-actuator = { group = 'org.springframework.boot', name = 'spr
 spring-boot-starter-web = { group = 'org.springframework.boot', name = 'spring-boot-starter-web'}
 spring-boot-starter-test = { group = 'org.springframework.boot', name = 'spring-boot-starter-test'}
 spring-boot-starter-validation = { group = 'org.springframework.boot', name = 'spring-boot-starter-validation'}
+spring-boot-testcontainers = { group = 'org.springframework.boot', name = 'spring-boot-testcontainers' }
 springdoc-openapi-starter-webmvc-ui = { group = 'org.springdoc', name = 'springdoc-openapi-starter-webmvc-ui', version.ref = 'springdoc-openapi-starter-webmvc-ui' }
 spock-bom = { group = 'org.spockframework', name = 'spock-bom', version.ref = 'spock' }
 spock-core = { group = 'org.spockframework', name = 'spock-core' }
 spock-spring = { group = 'org.spockframework', name = 'spock-spring' }
+testcontainers-postgresql = { group = 'org.testcontainers', name = 'postgresql' }
 
 [plugins]
 application = { id = 'buildlogic.java-application' }

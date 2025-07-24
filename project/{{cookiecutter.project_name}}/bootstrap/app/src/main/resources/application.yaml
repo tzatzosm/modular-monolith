@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: app
+  datasource:
+    url: jdbc:postgresql://localhost:5432/{{cookiecutter.project_name_slug}}
+    driver-class-name: org.postgresql.Driver
+    username: {{cookiecutter.project_name_slug}}
+    password: {{cookiecutter.project_name_slug}}

@@ -13,9 +13,12 @@ dependencies {
     implementation libs.spring.boot.starter.web
 
     testImplementation libs.spring.boot.starter.test
+    testImplementation libs.spring.boot.testcontainers
     implementation(platform(libs.spock.bom))
     testImplementation libs.spock.core
     testImplementation libs.spock.spring
+    testImplementation libs.testcontainers.postgresql
+    
 }
 
 bootJar {
