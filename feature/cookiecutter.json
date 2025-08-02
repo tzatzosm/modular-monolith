@@ -1,7 +1,8 @@
 {
     "feature_name": "feature",
+    "feature_name_capitalized": "{{ cookiecutter.feature_name|capitalize }}",
     "base_package": "com.example.modularmonolith",
-    "base_package_dir": "{{cookiecutter.package|replace('.', '/')}}",
-    "feature_package": "{{ cookiecutter.feature_name|lower|regex_replace('[^a-z0-9]', '')}}",
-    "package": "{{cookiecutter.package}}.{{cookiecutter.feature_package}}"
+    "base_package_dir": "{{cookiecutter.base_package|replace('.', '/')}}",
+    "feature_package": "{{ cookiecutter.feature_name|lower|replace('_', '')}}",
+    "package": "{{cookiecutter.base_package}}.{{cookiecutter.feature_package}}"
 }

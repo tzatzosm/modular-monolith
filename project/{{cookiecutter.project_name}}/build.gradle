@@ -1,0 +1,14 @@
+def basePackage = '{{cookiecutter.package}}'
+
+task addFeature {
+    doLast {
+        def featureName = project.hasProperty('featureName') ? project.property('featureName') : null
+        if (!featureName) {
+            throw new GradleException("You must provide -PfeatureName=<name> when running this task.")
+        }
+        exec {
+            commandLine 'cookiecutter', '../feature', '--no-input', '--output-dir', 'features', \
+                '--extra-context', "basePackage=${basePackage} featureName=${featureName}"
+        }
+    }
+}
