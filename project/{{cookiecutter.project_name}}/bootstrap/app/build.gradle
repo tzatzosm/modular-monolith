@@ -5,6 +5,7 @@ plugins {
 }
 
 dependencies {
+    /* Features */
     implementation project(':features:hello')
 
     implementation(platform(libs.spring.boot.bom))

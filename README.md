@@ -40,6 +40,24 @@ Or if you have the template locally:
 cookiecutter path/to/modular-monolith --directory=project
 ```
 
+### 2a. Add a New Feature Module
+
+To add a new feature module, use the provided Gradle task. This will scaffold the feature with the correct structure and configuration:
+
+```bash
+./gradlew addFeature --featureName=<feature_name>
+```
+
+Replace `<feature_name>` with the desired name for your feature (e.g., `user`, `order`).
+
+This task will:
+- Create the feature module under `features/<feature_name>`
+- Set up the recommended package structure
+- Register the module in `settings.gradle`
+- Add the dependency to `bootstrap/app/build.gradle`
+
+After running the task, you can start implementing your feature's domain, application, API, and infrastructure code in the generated directories.
+
 ### 3. Configuration Options
 
 During project generation, you'll be prompted for:

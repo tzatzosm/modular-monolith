@@ -1,5 +1,7 @@
 def basePackage = '{{cookiecutter.package}}'
 
+def cookiecutterFeatureRepo = 'https://github.com/tzatzosm/modular-monolith'
+
 task addFeature {
     doLast {
         def featureName = project.hasProperty('featureName') ? project.property('featureName') : null
@@ -7,8 +9,8 @@ task addFeature {
             throw new GradleException("You must provide -PfeatureName=<name> when running this task.")
         }
         exec {
-            commandLine 'cookiecutter', '../feature', '--no-input', '--output-dir', 'features', \
-                '--extra-context', "basePackage=${basePackage} featureName=${featureName}"
+            commandLine 'cookiecutter', cookiecutterFeatureRepo, '--directory=feature', '--no-input', \
+                '--output-dir', 'features', "base_package=${basePackage}", "feature_name=${featureName}"
         }
     }
 }
