@@ -162,3 +162,91 @@ Testing is critical for maintaining code quality and ensuring the reliability of
         * `should_create_user_when_valid_request_provided()`
         * `should_return_404_when_user_not_found()`
         * `should_update_user_email_when_valid_email_provided()`
+
+# 4. Dependency Management
+
+All dependencies must be managed centrally for consistency and maintainability.
+
+* **Declare dependencies in TOML:**
+    * All library dependencies should be declared in `gradle/libs.versions.toml`.
+    * Use the dependency name as an identifier for each dependency.
+    * The version should be specified using the `version` key.
+    * Example:
+        ```toml
+        [libraries]
+        spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version = "spring-boot" }
+        mapstruct = { module = "org.mapstruct:mapstruct", version = "1.5.5.Final" }
+        ```
+
+* **Explicit versioning for BOM dependencies:**
+    * If a dependency is included in the `spring-boot-bom`, you must not explicitly set its version in the TOML file.
+    * This ensures that Gradle uses the intended version and avoids ambiguity or mismatches.
+    * Example:
+        ```toml
+        [libraries]
+        spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+        ```
+
+* **Best Practices:**
+    * Always update the TOML file when adding, removing, or upgrading dependencies.
+    * Avoid hardcoding versions in build.gradle files; use the TOML reference instead.
+    * Document any special dependency requirements in the TOML file using comments.
+    * Run `./gradlew dependencies` to verify the resolved versions and check for conflicts after changes.
+
+# 5. Code Generation with Lombok
+
+Use Lombok extensively to reduce boilerplate code and improve code readability and maintainability.
+
+* **Default Lombok Annotations:**
+    * Use `@Data` for most domain models and DTOs to generate getters, setters, `equals()`, `hashCode()`, and `toString()` methods
+    * Use `@Builder` for creating objects with complex construction patterns, especially for test data and immutable objects
+    * Use `@AllArgsConstructor` and `@NoArgsConstructor` when specific constructor patterns are needed
+    * Use `@RequiredArgsConstructor` for dependency injection in services and components
+    * Use `@Slf4j` for logging instead of manually creating logger instances
+
+* **Lombok Best Practices:**
+    * **Domain Models:** Use `@Data` and `@Builder` for entities and value objects to minimize boilerplate
+        ```java
+        @Data
+        @Builder
+        @Entity
+        @Table(name = "users")
+        public class User {
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private Long id;
+            private String email;
+            private String firstName;
+            private String lastName;
+        }
+        ```
+    * **DTOs and Request/Response Objects:** Use `@Data` and `@Builder` for clean data transfer objects
+        ```java
+        @Data
+        @Builder
+        public class CreateUserRequest {
+            private String email;
+            private String firstName;
+            private String lastName;
+        }
+        ```
+    * **Service Classes:** Use `@RequiredArgsConstructor` for constructor-based dependency injection
+        ```java
+        @RequiredArgsConstructor
+        @Service
+        @Slf4j
+        public class UserService {
+            private final UserRepository userRepository;
+            private final UserMapper userMapper;
+        }
+        ```
+
+* **When NOT to Use Lombok:**
+    * Avoid `@Data` on JPA entities with complex relationships (use `@Getter`, `@Setter`, and manually implement `equals()`/`hashCode()`)
+    * Don't use `@ToString` on entities with lazy-loaded relationships to prevent LazyInitializationException
+    * Avoid Lombok on classes that need custom implementations of generated methods
+
+* **IDE Configuration:**
+    * Ensure Lombok plugin is installed and enabled in your IDE
+    * Enable annotation processing in your IDE settings
+    * Configure code formatting to work properly with Lombok-generated code
